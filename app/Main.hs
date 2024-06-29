@@ -34,8 +34,14 @@ solutionTo 5 = head $ filter isSmallestMultiple [2520..]
         isSmallestMultiple :: Integer -> Bool
         isSmallestMultiple n = and $ (isMultipleOf n) <$> [1..20]
 
+solutionTo 6 = sumSquare - squareSum
+    where
+        sumSquare = sum (zipWith (*) [1..100] [1..100])
+        sum' = sum [1..100]
+        squareSum = sum' * sum'
+
 solutionTo _ = 0
 
 
 main :: IO ()
-main = putStrLn $ show $ solutionTo 5
+main = putStrLn $ show $ solutionTo 6
